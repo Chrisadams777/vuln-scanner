@@ -1,20 +1,20 @@
-# Use Python 3.9 as the base image
+# Use Python 3.9 slim image
 FROM python:3.9-slim
 
 # Set the working directory
 WORKDIR /app
 
-# Copy the requirements.txt file
+# Copy the requirements file to install dependencies
 COPY requirements.txt .
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code
+# Copy the rest of the code
 COPY . .
 
-# Expose the port (if applicable, if you are serving an API)
+# Expose port (if you're running a Flask API, for example)
 EXPOSE 5000
 
-# Run the AI model or application (update this to match your app’s entry point)
+# Run the AI model or Flask API
 CMD ["python", "analyzer.py"]
