@@ -16,9 +16,19 @@ sudo apt install nodejs npm -y
 sudo npm install -g puppeteer
 
 # Install Python and dependencies
+echo "Installing Python3 and venv..."
+sudo apt install python3 python3-pip python3-venv -y
+
+# Create a virtual environment and activate it
+echo "Creating a Python virtual environment..."
+python3 -m venv venv
+
+# Activate the virtual environment
+source venv/bin/activate
+
+# Install Python dependencies inside the virtual environment
 echo "Installing Python dependencies..."
-sudo apt install python3 python3-pip -y
-pip3 install --user -r requirements.txt  # Use --user to avoid permission issues
+pip install -r requirements.txt
 
 # Install Docker according to GeeksForGeeks instructions (for Kali Linux)
 echo "Installing Docker..."
@@ -46,4 +56,4 @@ go run backend/go-crawler/main.go http://example.com
 echo "Running the Puppeteer tests..."
 sudo node frontend/puppeteer-test/index.js
 
-echo "Setup complete!"
+echo "Setup complete! Make sure to log out and log back in for Docker permissions to take effect."
