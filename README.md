@@ -19,3 +19,30 @@ This is an AI-powered vulnerability scanner that combines Go for web crawling an
    cd vuln-scanner
 
 ```
+
+2. **Run setup script**:
+
+```bash
+
+bash scripts/setup.sh
+
+```
+
+3. **Run integration tests**:
+
+```bash
+
+bash scripts/integration_test.sh
+
+```
+
+4. **CI Pipeline**:
+
+```
+
+All tests (Go, Python, Node.js) are automatically run via GitHub Actions.
+
+```
+
+
+
