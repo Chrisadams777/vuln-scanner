@@ -1,10 +1,10 @@
 version: '3.8'
+
 services:
   go_crawler:
     build:
       context: ./backend/go-crawler
       dockerfile: Dockerfile
-    container_name: go_crawler
     ports:
       - "8080:8080"
 
@@ -12,7 +12,6 @@ services:
     build:
       context: ./backend/ai-model
       dockerfile: Dockerfile
-    container_name: ai_model
     ports:
       - "5000:5000"
 
@@ -20,6 +19,5 @@ services:
     build:
       context: ./frontend/puppeteer-test
       dockerfile: Dockerfile
-    container_name: node_client
     ports:
       - "3000:3000"
