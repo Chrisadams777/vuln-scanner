@@ -17,7 +17,6 @@ dependencies:
   json_annotation: ^4.0.1
   intl: ^0.17.0
   _fe_analyzer_shared 74.0.0
-  _macros 0.3.2 from sdk dart
   analyzer 6.9.0
   args 2.5.0
   async 2.11.0
