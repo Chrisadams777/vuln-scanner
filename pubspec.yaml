@@ -16,8 +16,8 @@ dependencies:
   fluttertoast: ^8.0.7
   json_annotation: ^4.0.1
   intl: ^0.17.0
-  fe_analyzer_shared 74.0.0
-  macros: 0.3.2 from sdk dart
+  _fe_analyzer_shared 74.0.0
+  _macros 0.3.2 from sdk dart
   analyzer 6.9.0
   args 2.5.0
   async 2.11.0
@@ -111,9 +111,4 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
-
-  fonts:
-    - family: Roboto
-      fonts:
-        - asset: assets/fonts/Roboto-Regular.ttf
-
+    
