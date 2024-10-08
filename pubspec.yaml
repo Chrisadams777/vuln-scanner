@@ -30,7 +30,7 @@ dependencies:
   shelf: 1.4.2
   stack_trace: 1.12.0
   string_scanner: 1.2.0
-  test_api: 0.7.3
+  test_api: 0.7.2
   vm_service: 14.2.5
   xml: 6.5.0
   
