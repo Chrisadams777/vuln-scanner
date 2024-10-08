@@ -1,0 +1,59 @@
+name: Vulnerability Scanner CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      docker:
+        image: docker:19.03.12
+        options: --privileged
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.16'
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Python dependencies
+        run: |
+          cd backend/ai-model
+          pip install -r requirements.txt
+
+      - name: Install Node.js dependencies
+        run: |
+          cd frontend/puppeteer-test
+          npm install
+
+      - name: Run Go unit tests
+        run: go test ./backend/go-crawler/tests/...
+
+      - name: Run Python unit tests
+        run: python3 -m unittest discover backend/ai-model/tests
+
+      - name: Run Node.js Puppeteer tests
+        run: npx mocha frontend/puppeteer-test/tests/test_puppeteer.js
+
+      - name: Build and run Docker containers
+        run: docker-compose up -d
