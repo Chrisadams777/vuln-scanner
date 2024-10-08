@@ -1,1 +1,24 @@
+Workflow: Default
+version: '3.8'
 
+services:
+  go_crawler:
+    build:
+      context: ./backend/go-crawler
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+
+  ai_model:
+    build:
+      context: ./backend/ai-model
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+
+  node_client:
+    build:
+      context: ./frontend/puppeteer-test
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
