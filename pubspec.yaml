@@ -1,0 +1,43 @@
+name: vuln_scanner_dashboard
+description: A FlutterFlow-based dashboard for the vulnerability scanner.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # For making API requests to the backend (e.g., Flask AI model, Go web crawler)
+  http: ^0.13.3
+
+  # State management (if necessary for maintaining session state or authentication)
+  provider: ^6.0.0
+
+  # UI elements and icons (Material/Cupertino)
+  cupertino_icons: ^1.0.2
+  flutter_svg: ^0.22.0  # For using SVG icons
+  fluttertoast: ^8.0.7  # For user notifications and alerts
+
+  # Additional utilities (for JSON handling or formatting scanner results)
+  json_annotation: ^4.0.1
+  intl: ^0.17.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.0.0
+  json_serializable: ^6.0.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/images/
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
